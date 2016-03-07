@@ -4,6 +4,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script>
 (function() {
   // If window.HTMLWidgets is already defined, then use it; otherwise create a
@@ -267,8 +268,7 @@
         // Mark it with a unique ID and CSS class so we can remove it later.
         $el.css("visibility", "hidden");
         if (err.message !== "") {
-          var errorDiv = $("<div>
-").addClass(errClass).css("position", "absolute")
+          var errorDiv = $("<div>").addClass(errClass).css("position", "absolute")
             .css("top", el.offsetTop)
             .css("left", el.offsetLeft)
             // setting width can push out the page size, forcing otherwise
@@ -630,23 +630,21 @@
     }
   };
 })();
-</script>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script>
-                HTMLWidgets.widget({
-                  name: "plotly",
-                  type: "output",
-                  
-                  initialize: function(el, width, height){
-                    return {};
-                  },
-                  
-                  resize: function(el, width, height, instance) {
-                    Plotly.relayout(el.id, {width: width, height: height});
-                  },  
-                  
-                  renderValue: function(el, x, instance) {
-                    // make sure plots don't get created outside the network
+
+HTMLWidgets.widget({
+  name: "plotly",
+  type: "output",
+  
+  initialize: function(el, width, height){
+    return {};
+  },
+  
+  resize: function(el, width, height, instance) {
+    Plotly.relayout(el.id, {width: width, height: height});
+  },  
+  
+  renderValue: function(el, x, instance) {
+    // make sure plots don't get created outside the network
     window.PLOTLYENV = window.PLOTLYENV || {};
     window.PLOTLYENV.BASE_URL = x.base_url;
     
@@ -679,21 +677,3 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
    }, 0);
 }
 </script>
-
-<!--
-<style type = "text/css">
-.main-container {
-max-width: 940px;
-margin-left: auto;
-margin-right: auto;
-}
-code {
-color: inherit;
-background-color: rgba(0, 0, 0, 0.04);
-}
-img { 
-max-width:100%; 
-height: auto; 
-}
-</style>
--->
