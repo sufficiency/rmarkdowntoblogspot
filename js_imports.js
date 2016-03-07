@@ -4,9 +4,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-<!--
-<script src="http://www.htmlwidgets.org/libs/htmlwidgets/htmlwidgets.js"></script>
--->
+<script src="https://cdn.rawgit.com/sufficiency/rmarkdowntoblogspot/master/htmlwidgets_hacked.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 
